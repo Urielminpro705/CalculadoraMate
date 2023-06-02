@@ -1,1 +1,1 @@
-let 
+const { all } = require('mathjs')
