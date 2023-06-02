@@ -44,13 +44,12 @@ function biseccion(expr, errorDeseado) {
 
 function newton(expr) {
     let funcion = math.compile(expr)
-    let a, i = 0, errorDeseado, iteraciones, variableA = {x: a}, b, error
+    let a, i =0, errorDeseado, iteraciones, variableA = {x: a}, b, error
     let derivada = funcion.derivative()
     do{     
         b = a - (funcion.evaluate(variableA)/derivada.evaluate(variableA))
         a = b
         error = Math.abs(funcion(variableA) - 0)
-        i++
     }while(i < iteraciones && error > errorDeseado)
     console.log("La raiz es: ", b)
     console.log("El error es: ",error)
