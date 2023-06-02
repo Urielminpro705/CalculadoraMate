@@ -8,7 +8,7 @@ function biseccion() {
     let a=1, b=2, c
     let funcion = math.compile(expr)
     let variableA, variableB, variableC
-    let i = 0, iteraciones = 10
+    let i = 0, iteraciones = 20
     let error
     variableA = {x: a}
     variableB = {x: b}
@@ -31,7 +31,7 @@ function biseccion() {
             }
             error=Math.abs(funcion.evaluate(variableC) - 0)
             i = i+1
-        }while(i < iteraciones || error > errorDeseado)
+        }while(i < iteraciones && error > errorDeseado)
         console.log("La raiz es: ",c)
         console.log("El error es: ",error)
         console.log("Numero de iteraciones: ",i)
@@ -41,3 +41,11 @@ function biseccion() {
     }
 }
 
+function newton() {
+    let a, i
+    let errorDeseado
+    let iteraciones
+    do{
+        
+    }while(i < iteraciones && error > errorDeseado)
+}
