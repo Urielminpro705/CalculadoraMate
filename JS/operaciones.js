@@ -1,7 +1,7 @@
 function igual(){
     let expr = document.getElementById('texto').value;
     let errorDeseado = document.getElementById('errorDeseado').value;
-    biseccion(expr, errorDeseado)
+    newton(expr, errorDeseado)
 
 }
 
@@ -42,16 +42,15 @@ function biseccion(expr, errorDeseado) {
     }
 }
 
-function newton(expr) {
+function newton(expr, errorDeseado){
+    let a, iteraciones = 20, b
     let funcion = math.compile(expr)
-    let a, i =0, errorDeseado, iteraciones, variableA = {x: a}, b, error
-    let derivada = funcion.derivative()
-    do{     
-        b = a - (funcion.evaluate(variableA)/derivada.evaluate(variableA))
+    let variableA
+    variableA = {x:a}
+    do{
+        
+        b = a - (funcion.evaluate(variableA)/math.derivative(expr,'x'))
         a = b
-        error = Math.abs(funcion(variableA) - 0)
+        error = Math.abs(funcion.evaluate(variableA) - 0)
     }while(i < iteraciones && error > errorDeseado)
-    console.log("La raiz es: ", b)
-    console.log("El error es: ",error)
-    console.log("Numero de iteraciones: ",i)
 }
