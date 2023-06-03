@@ -4,11 +4,17 @@
     grid-template-rows: 150px 40px 40px 40px 40px;
     width: 29%;
     height: 400px;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
     background-color: #EEEEEE;
     justify-content:space-evenly;
     align-content: space-evenly;
-    border-radius: 5px;
+    border-radius: 5px
+}
+
+body {
+    background-color: #222831;
 }
 
 button {
@@ -32,9 +38,22 @@ button {
     border: 5px solid #393E46;
     border-radius: 5px;
     text-align: right;
+    font-size: larger;
+}
+
+#resultado {
+    height: 100%;
+    width: 99%;
+    padding: 0px;
+    margin: auto;
+    border: 5px solid #393E46;
+    border-radius: 5px;
+    text-align: right;
 }
 
 #pantalla {
+    display: grid;
+    grid-template-rows: 50% 50%;
     margin-right: 5px;
     grid-column: 1 / span 5;
     margin-bottom: 10px;
@@ -42,10 +61,4 @@ button {
 
 .item {
     margin: 0px;
-}
-
-.calculadora {
-    background-color: #222831;
-    height: 1000px;
-    align-content: center;
 }
