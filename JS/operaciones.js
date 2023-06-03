@@ -1,7 +1,7 @@
 function igual(){
     let expr = document.getElementById('texto').value;
     let errorDeseado = 0
-    biseccion(expr, errorDeseado)
+    puntoFijo(expr, errorDeseado)
 
 }
 
@@ -64,17 +64,17 @@ function newton(expr, errorDeseado){
 }
 
 function puntoFijo(expr, errorDeseado) {
-    let inicial = 1, b, error, i = 0
-    let iteraciones
+    let b, error
+    var i = 3, a = 0
+    let iteraciones = 100
     let funcion = math.compile(expr)
     let variableA
     do {
-        variableA = {x: inicial}
+        variableA = {x: a}
         b = funcion.evaluate(variableA)
-        error = Math.abs(b - inicial)
-        inicial = b
+        error = Math.abs(b - a)
+        a = b
         i++
-        
     }while(i < iteraciones && error > errorDeseado)
     if(i <= iteraciones) {
         console.log("La raiz es: ", a)
