@@ -1,7 +1,7 @@
 function igual(){
     let expr = document.getElementById('texto').value;
     let errorDeseado = 0
-    puntoFijo(expr, errorDeseado)
+    secante(expr, errorDeseado)
 
 }
 
@@ -43,11 +43,11 @@ function biseccion(expr, errorDeseado) {
 }
 
 function newton(expr, errorDeseado){
-    let a = 1, iteraciones = 20, b, error, i = 0
+    let a = 1 , iteraciones = 100, b, error, i = 0
     let funcion = math.compile(expr)
     let variableA
     let derivada
-    derivada = math.derivative('2x^2-x-5','x').toString()
+    derivada = math.derivative(expr,'x').toString()
     let derivada1 = math.compile(derivada) 
     do{
         variableA = {x: a}
@@ -55,7 +55,6 @@ function newton(expr, errorDeseado){
         a = b
         error = Math.abs(funcion.evaluate(variableA) - 0)
         i++
-        console.log(variableA)
     }while(i < iteraciones && error > errorDeseado)
     console.log("La derivada es: ",derivada)
     console.log("La raiz es: ", b)
@@ -65,7 +64,7 @@ function newton(expr, errorDeseado){
 
 function puntoFijo(expr, errorDeseado) {
     let b, error
-    var i = 3, a = 0
+    var i = 0, a = 0
     let iteraciones = 100
     let funcion = math.compile(expr)
     let variableA
@@ -85,4 +84,27 @@ function puntoFijo(expr, errorDeseado) {
         console.log("El metodo no converge en ",i," iteraciones")
     } 
 }
-//Funcion = 2x^2-x-5
+
+function secante(expr, errorDeseado) {
+    let iteraciones = 100
+    let funcion = math.compile(expr)
+    var a = 1, c, error, i = 0
+    var b = a - 0.00001
+    let variableA, variableB
+    do{
+        variableA = {x: a}
+        variableB = {x: b}
+        c = a - (((a - b)*funcion.evaluate(variableA))/(funcion.evaluate(variableA) - funcion.evaluate(variableB)))
+        b = a
+        a = c
+        error = Math.abs(funcion.evaluate(variableA) - 0)
+        i++
+    }while(i < iteraciones && error > errorDeseado)
+    console.log("La raiz es: ", c)
+    console.log("El error es: ", error)
+    console.log("Numero de iteraciones: ", i)
+}
+/*Funciones de prueba:
+    2x^2-x-5
+    e^-x
+*/
