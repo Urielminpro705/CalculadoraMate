@@ -43,14 +43,20 @@ function biseccion(expr, errorDeseado) {
 }
 
 function newton(expr, errorDeseado){
-    let a, iteraciones = 20, b
+    let a = 0, iteraciones = 20, b, error, i = 0
     let funcion = math.compile(expr)
     let variableA
     variableA = {x:a}
+    let derivada
     do{
-        
-        b = a - (funcion.evaluate(variableA)/math.derivative(expr,'x'))
+        derivada = math.derivative('2x^2-x-5','x').toString()
+        b = a - (funcion.evaluate(variableA)/math.evaluate(expr, variableA))
         a = b
         error = Math.abs(funcion.evaluate(variableA) - 0)
+        i++
     }while(i < iteraciones && error > errorDeseado)
+    console.log(derivada)
+    console.log("La raiz es: ", b)
+    console.log("El error es: ",error)
+    console.log("Numero de iteraciones: ",i)
 }
