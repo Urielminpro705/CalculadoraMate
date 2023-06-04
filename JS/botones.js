@@ -1,6 +1,8 @@
 function borrar() {
     var t = document.getElementById('texto');
     t.value = null
+    let r = document.getElementById('resultado');
+    r.value = null
 }
 
 function parentecis1() {
