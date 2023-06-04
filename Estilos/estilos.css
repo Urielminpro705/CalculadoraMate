@@ -1,9 +1,9 @@
 .contenedor {
     display: grid;
-    grid-template-columns: 18% 18% 18% 18% 18%;
-    grid-template-rows: 150px 40px 40px 40px 40px;
+    grid-template-columns: 22% 22% 22% 22%;
+    grid-template-rows: 150px 40px 40px 40px 40px 40px 40px;
     width: 29%;
-    height: 400px;
+    height: 470px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10%;
@@ -55,7 +55,7 @@ button {
     display: grid;
     grid-template-rows: 50% 50%;
     margin-right: 5px;
-    grid-column: 1 / span 5;
+    grid-column: 1 / span 4;
     margin-bottom: 10px;
 }
 

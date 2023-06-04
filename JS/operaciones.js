@@ -1,7 +1,7 @@
 function igual(){
     let expr = document.getElementById('texto').value;
     let errorDeseado = 0
-    newton(expr, errorDeseado)
+    biseccion(expr, errorDeseado)
 
 }
 
@@ -23,7 +23,7 @@ function imprimir(raices) {
 
 function biseccion(expr, errorDeseado) {  
     let funcion = math.compile(expr) 
-    var a=-50, b=-45, j = 0, auxA, auxB
+    var a=-50, b=-47, auxA, auxB
     var raices = []
     do{
         var i = 0, error, c = 0
@@ -58,15 +58,14 @@ function biseccion(expr, errorDeseado) {
             var raiz = new Raiz(c, error, i)
             raices.push(raiz)
             imprimir(raiz)
-            a = a+5
-            b = b+5
+            a = a+3
+            b = b+3
         }
         else {
-            a = a+5
-            b = b+5
+            a = a+3
+            b = b+3
         }
-        j++
-    }while(j <= 10)
+    }while(b < 60)
     imprimir(raices)
 }
 
