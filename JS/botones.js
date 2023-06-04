@@ -3,6 +3,8 @@ function borrar() {
     t.value = null
     let r = document.getElementById('resultado');
     r.value = null
+    let r2 = document.getElementById('Nresultados');
+    r2.value = null
 }
 
 function parentecis1() {

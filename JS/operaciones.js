@@ -3,6 +3,8 @@ function igual(){
     let errorDeseado = 0
     let r = document.getElementById('resultado');
     r.value = null
+    let r2 = document.getElementById('Nresultados');
+    r2.value = null
     biseccion(expr, errorDeseado)
 }
 
@@ -16,6 +18,8 @@ class Raiz{
 
 function imprimir(raices) {
     var r = document.getElementById('resultado');
+    var r2 = document.getElementById('Nresultados');
+    r2.value = "Se econtraron " + raices.length + " raices"
     for(var i = 0; i < raices.length; i++){
         r.value = r.value + "La raíz es: " + raices[i].raiz + "\n"
         console.log("La raiz es: ",raices[i].raiz)
