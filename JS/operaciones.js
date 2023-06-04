@@ -138,9 +138,10 @@ function puntoFijo(expr, errorDeseado) {
     } 
 }
 
+/*
 function secante(expr, errorDeseado) {
     let funcion = math.compile(expr);
-    var a = -50, c, b,error, variableA, variableB, aux, j = 0, i;
+    var a = -50, c = 0, b,error, variableA, variableB, aux, j = 0, i;
     let iteraciones = 100;
     var raices = [];
     do{ 
@@ -168,9 +169,34 @@ function secante(expr, errorDeseado) {
                 j++;
             }           
         }
-    }while(a < 51);
+    }while(a < -50);
     imprimir(raices)
+}*/
+
+function secante(expr, errorDeseado) {
+    let iteraciones = 100
+    let funcion = math.compile(expr)
+    var a = -50, error, i = 0
+    var b = (a - 0.00001)
+    var variableA, variableB, funcion1, funcion2
+    var c;
+    do{
+        variableA = {x: a}
+        variableB = {x: b}
+        funcion1 = funcion.evaluate(variableA)
+        funcion2 = funcion.evaluate(variableB)
+        c = a - (((a - b)*funcion1)/(funcion1 - funcion2))
+        b = a
+        a = c
+        error = Math.abs(funcion1 - 0)
+        i++
+    }while(i < iteraciones && error > errorDeseado) 
+    console.log("La raiz es: ", c)
+    console.log("El error es: ", error)
+    console.log("Numero de iteraciones: ", i)
 }
+
+
 /*Funciones de prueba:
     2x^2-x-5
     e^-x
