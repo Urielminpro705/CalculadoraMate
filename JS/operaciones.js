@@ -85,7 +85,6 @@ function biseccion(expr, errorDeseado) {
             b = auxB;
             var raiz = new Raiz(c, error, i);
             raices.push(raiz);
-            imprimir(raiz);
             a = a+3;
             b = b+3;
         }
@@ -140,23 +139,37 @@ function puntoFijo(expr, errorDeseado) {
 }
 
 function secante(expr, errorDeseado) {
-    let iteraciones = 100;
     let funcion = math.compile(expr);
-    var a = 1, c, error, i = 0;
-    var b = a - 0.00001;
-    let variableA, variableB;
-    do{
-        variableA = {x: a};
-        variableB = {x: b};
-        c = a - (((a - b)*funcion.evaluate(variableA))/(funcion.evaluate(variableA) - funcion.evaluate(variableB)));
-        b = a;
-        a = c;
-        error = Math.abs(funcion.evaluate(variableA) - 0);
-        i++;
-    }while(i < iteraciones && error > errorDeseado);
-    console.log("La raiz es: ", c);
-    console.log("El error es: ", error);
-    console.log("Numero de iteraciones: ", i);
+    var a = -50, c, b,error, variableA, variableB, aux, j = 0, i;
+    let iteraciones = 100;
+    var raices = [];
+    do{ 
+        i = 0;
+        aux = a;
+        b = a - 0.00001;
+        do{
+            variableA = {x: a};
+            variableB = {x: b};
+            c = a - (((a - b)*funcion.evaluate(variableA))/(funcion.evaluate(variableA) - funcion.evaluate(variableB)));
+            b = a;
+            a = c;
+            error = Math.abs(funcion.evaluate(variableA) - 0);
+            i++;
+        }while(i < iteraciones && error > errorDeseado);
+        var raiz = new Raiz (c, error, i);
+        a = aux;
+        a = a + 3;
+        if(raices[j] == null){
+            raices.push(raiz);
+        }
+        else{
+            if(c != raices[j].raiz) {
+                raices.push(raiz);
+                j++;
+            }           
+        }
+    }while(a < 51);
+    imprimir(raices)
 }
 /*Funciones de prueba:
     2x^2-x-5
