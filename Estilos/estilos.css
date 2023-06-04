@@ -73,6 +73,14 @@ button {
     background-color: #B73E3E;
 }
 
+#igual:active {
+    background-color: #943030;
+}
+
 .numeros {
     background-color: #047c83;
+}
+
+button:active {
+    background-color: #047075;
 }
