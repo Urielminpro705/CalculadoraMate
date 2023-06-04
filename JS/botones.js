@@ -1,3 +1,14 @@
+function letraE() {
+    var t = document.getElementById('texto');
+    t.value = t.value + "e"
+}
+
+function borrarUno() {
+    var texto = document.getElementById('texto');
+    var nuevoTexto = texto.value.slice(0, -1);
+    texto.value = nuevoTexto
+}
+
 function borrar() {
     var t = document.getElementById('texto');
     t.value = null
