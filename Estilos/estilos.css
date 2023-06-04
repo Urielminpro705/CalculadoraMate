@@ -1,11 +1,15 @@
+.mayor {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .contenedor {
     display: grid;
     grid-template-columns: 22% 22% 22% 22%;
     grid-template-rows: 150px 40px 40px 40px 40px 40px 40px;
     width: 29%;
     height: 470px;
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 70px;
     background-color: #EEEEEE;
     justify-content:space-evenly;
@@ -43,7 +47,7 @@ button {
     font-weight: bold;
 }
 
-#resultado {
+#Nresultados {
     height: 100%;
     width: 99%;
     padding: 0px;
@@ -63,6 +67,27 @@ button {
     border: 5px solid #393E46;
     border-radius: 5px;
     background-color: white
+}
+
+.contenedor2 {
+    margin-top: 70px;
+    margin-left: 5%;
+    width: 200px;
+}
+
+#respuestas {
+    height: 100%;
+}
+
+#resultado {
+    background-color: #EEEEEE;
+    visibility: visible;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    border-radius: 5px;
 }
 
 .item {

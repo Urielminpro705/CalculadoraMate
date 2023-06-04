@@ -13,7 +13,9 @@ class Raiz{
 }
 
 function imprimir(raices) {
+    var r = document.getElementById('resultado');
     for(var i = 0; i < raices.length; i++){
+        r.value = "La raiz es: ",raices[i].raiz,"\n"
         console.log("La raiz es: ",raices[i].raiz)
         console.log("El error es: ",raices[i].error)
         console.log("Numero de iteraciones: ",raices[i].iteraciones,"\n")

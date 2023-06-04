@@ -13,84 +13,89 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js" integrity="sha512-VW8/i4IZkHxdD8OlqNdF7fGn3ba0+lYqag+Uy4cG6BtJ/LIr8t23s/vls70pQ41UasHH0tL57GQfKDApqc9izA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="JS/botones.js" type="text/javascript"></script>
     <script src="JS/operaciones.js" type="text/javascript"></script>
-    <div class="contenedor">
-        <div id="pantalla">
-            <div>
-                <output type="text" id="resultado"></output>
-            </div>            
-            <input type="text" id="texto">
+    <div class="mayor">
+        <div class="contenedor">
+            <div id="pantalla">
+                <input type="text" id="Nresultados">           
+                <input type="text" id="texto">
+            </div>
+            <div class="item">
+                <button onclick="borrar()">CE</button>
+            </div>
+            <div class="item">
+                <button onclick="parentecis1()">&#40;</button>
+            </div>
+            <div class="item">
+                <button onclick="parentecis2()">&#41;</button>
+            </div>
+            <div class="item">
+                <button onclick="raizCuadrada()">&radic;</button>
+            </div>
+            <div class="item">
+                <button onclick="seno()">sen</button>
+            </div>
+            <div class="item">
+                <button onclick="coseno()">cos</button>
+            </div>
+            <div class="item">
+                <button onclick="division()">/</button>
+            </div>
+            <div class="item">
+                <button  onclick="multiplicar()">*</button>
+            </div>
+            <div class="item">
+                <button onclick="siete()" class="numeros">7</button>
+            </div>
+            <div class="item">
+                <button onclick="ocho()" class="numeros">8</button>
+            </div>
+            <div class="item">
+                <button onclick="nueve()" class="numeros">9</button>
+            </div>
+            <div class="item">
+                <button onclick="variable()">X</button>
+            </div>
+            <div class="item">
+                <button onclick="cuatro()" class="numeros">4</button>
+            </div>
+            <div class="item">
+                <button onclick="cinco()" class="numeros">5</button>
+            </div>
+            <div class="item">
+                <button onclick="seis()" class="numeros">6</button>
+            </div>
+            <div class="item">
+                <button onclick="mas()">+</button>
+            </div>
+            <div class="item">
+                <button onclick="uno()" class="numeros">1</button>
+            </div>
+            <div class="item">
+                <button onclick="dos()" class="numeros">2</button>
+            </div>
+            <div class="item">
+                <button onclick="tres()" class="numeros">3</button>
+            </div>
+            <div class="item">
+                <button onclick="menos()">-</button>
+            </div>
+            <div class="item">
+                <button onclick="exponente()">^</button>
+            </div>
+            <div class="item">
+                <button onclick="cero()" class="numeros">0</button>
+            </div>
+            <div class="item">
+                <button onclick="punto()">.</button>
+            </div>
+            <div class="item">
+                <button id="igual" onclick="igual()">=</button>
+            </div>
         </div>
-        <div class="item">
-            <button onclick="borrar()">CE</button>
-        </div>
-        <div class="item">
-            <button onclick="parentecis1()">&#40;</button>
-        </div>
-        <div class="item">
-            <button onclick="parentecis2()">&#41;</button>
-        </div>
-        <div class="item">
-            <button onclick="raizCuadrada()">&radic;</button>
-        </div>
-        <div class="item">
-            <button onclick="seno()">sen</button>
-        </div>
-        <div class="item">
-            <button onclick="coseno()">cos</button>
-        </div>
-        <div class="item">
-            <button onclick="division()">/</button>
-        </div>
-        <div class="item">
-            <button  onclick="multiplicar()">*</button>
-        </div>
-        <div class="item">
-            <button onclick="siete()" class="numeros">7</button>
-        </div>
-        <div class="item">
-            <button onclick="ocho()" class="numeros">8</button>
-        </div>
-        <div class="item">
-            <button onclick="nueve()" class="numeros">9</button>
-        </div>
-        <div class="item">
-            <button onclick="variable()">X</button>
-        </div>
-        <div class="item">
-            <button onclick="cuatro()" class="numeros">4</button>
-        </div>
-        <div class="item">
-            <button onclick="cinco()" class="numeros">5</button>
-        </div>
-        <div class="item">
-            <button onclick="seis()" class="numeros">6</button>
-        </div>
-        <div class="item">
-            <button onclick="mas()">+</button>
-        </div>
-        <div class="item">
-            <button onclick="uno()" class="numeros">1</button>
-        </div>
-        <div class="item">
-            <button onclick="dos()" class="numeros">2</button>
-        </div>
-        <div class="item">
-            <button onclick="tres()" class="numeros">3</button>
-        </div>
-        <div class="item">
-            <button onclick="menos()">-</button>
-        </div>
-        <div class="item">
-            <button onclick="exponente()">^</button>
-        </div>
-        <div class="item">
-            <button onclick="cero()" class="numeros">0</button>
-        </div>
-        <div class="item">
-            <button onclick="punto()">.</button>
-        </div>
-        <div class="item">
-            <button id="igual" onclick="igual()">=</button>
+        <div class="contenedor2">
+            <div id="respuestas">
+                <textarea id="resultado" rows="4" cols="40"></textarea>          
+            </div>
         </div>
     </div>
 </body>
