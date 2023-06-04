@@ -1,7 +1,25 @@
 function igual(){
     let expr = document.getElementById('texto').value;
     let errorDeseado = 0;
-    biseccion(expr, errorDeseado);
+    metodo(expr, errorDeseado)
+}
+
+function metodo(expr, errorDeseado) {
+    let m = document.getElementById('seleccion').value;
+    switch(m){
+        case "Biseccion":
+            biseccion(expr, errorDeseado);
+        break;
+        case "Punto fijo":
+            puntoFijo(expr, errorDeseado);
+        break;
+        case "Newton-Raphson":
+            newton(expr, errorDeseado);
+        break;
+        case "Secante":
+            secante(expr, errorDeseado);
+        break;
+    }
 }
 
 function limpiar() {
