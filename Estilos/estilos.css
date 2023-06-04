@@ -118,9 +118,10 @@ button:active {
         margin-top: 10px;
         margin-left: 0px;
         width: 60%;
+        height: auto;
     }
     #resultado {
-        height: auto;
+        height: 200px;
         width: 100%;
     }
 }
@@ -128,9 +129,9 @@ button:active {
 @media screen and (max-width: 384px){
     .contenedor {
         width: 85%;
+        margin-top: 20px;
     }
     .contenedor2 {
         width: 85%;
-        height: auto;
     }
 }
