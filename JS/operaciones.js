@@ -1,52 +1,79 @@
 function igual(){
     let expr = document.getElementById('texto').value;
     let errorDeseado = 0
-    secante(expr, errorDeseado)
+    newton(expr, errorDeseado)
 
 }
 
-function biseccion(expr, errorDeseado) {   
-    let a=0, b=10, c
-    let funcion = math.compile(expr)
-    let variableA, variableB, variableC
-    let i = 0, iteraciones = 100
-    let error
-    variableA = {x: a}
-    variableB = {x: b}
-    if(funcion.evaluate(variableA) * funcion.evaluate(variableB) < 0) {
-        do{                    
-            c = (a+b)/2      
-            variableC = {x: c}      
-            if(funcion.evaluate(variableA) * funcion.evaluate(variableC) < 0){
-                b = c;
-            }
-            else {
-                if(funcion.evaluate(variableA) * funcion.evaluate(variableC) > 0){
-                    a = c
+class Raiz{
+    constructor (raiz, error, iteraciones){
+        this.raiz = raiz
+        this.error = error
+        this.iteraciones = iteraciones
+    }
+}
+
+function imprimir(raices) {
+    for(var i = 0; i < raices.length; i++){
+        console.log("La raiz es: ",raices[i].raiz)
+        console.log("El error es: ",raices[i].error)
+        console.log("Numero de iteraciones: ",raices[i].iteraciones,"\n")
+    }
+}
+
+function biseccion(expr, errorDeseado) {  
+    let funcion = math.compile(expr) 
+    var a=-50, b=-45, j = 0, auxA, auxB
+    var raices = []
+    do{
+        var i = 0, error, c = 0
+        var variableA, variableB, variableC
+        let iteraciones = 100
+        variableA = {x: a}
+        variableB = {x: b}
+        auxA = a
+        auxB = b
+        if(funcion.evaluate(variableA) * funcion.evaluate(variableB) < 0) {
+            do{                    
+                c = (a+b)/2                           
+                variableC = {x: c}      
+                if(funcion.evaluate(variableA) * funcion.evaluate(variableC) < 0){
+                    b = c;
                 }
                 else {
-                    if(funcion.evaluate(variableA) * funcion.evaluate(variableC) == 0){
-                        error = 0
+                    if(funcion.evaluate(variableA) * funcion.evaluate(variableC) > 0){
+                        a = c
+                    }
+                    else {
+                        if(funcion.evaluate(variableA) * funcion.evaluate(variableC) == 0){
+                            error = 0
+                        }
                     }
                 }
-            }
-            error=Math.abs(funcion.evaluate(variableC) - 0)
-            i = i+1
-        }while(i < iteraciones && error > errorDeseado)
-        console.log("La raiz es: ",c)
-        console.log("El error es: ",error)
-        console.log("Numero de iteraciones: ",i)
-    }
-    else {
-        console.log("No hay raiz en este intervalo")
-    }
+                error = Math.abs(funcion.evaluate(variableC) - 0)
+                i = i+1
+            }while(i < iteraciones && error > errorDeseado)
+            a = auxA
+            b = auxB
+            var raiz = new Raiz(c, error, i)
+            raices.push(raiz)
+            imprimir(raiz)
+            a = a+5
+            b = b+5
+        }
+        else {
+            a = a+5
+            b = b+5
+        }
+        j++
+    }while(j <= 10)
+    imprimir(raices)
 }
 
 function newton(expr, errorDeseado){
     let a = 1 , iteraciones = 100, b, error, i = 0
     let funcion = math.compile(expr)
-    let variableA
-    let derivada
+    var variableA, derivada
     derivada = math.derivative(expr,'x').toString()
     let derivada1 = math.compile(derivada) 
     do{
