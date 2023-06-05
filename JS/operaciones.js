@@ -97,7 +97,7 @@ function biseccion(expr, errorDeseado) {
 }
 
 function newton(expr, errorDeseado){
-    let a = 1 , iteraciones = 100, b, error, i = 0;
+    let a = -50 , iteraciones = 100, b, error, i = 0;
     let funcion = math.compile(expr);
     var variableA, derivada;
     derivada = math.derivative(expr,'x').toString();
@@ -176,11 +176,12 @@ function secante(expr, errorDeseado) {
 function secante(expr, errorDeseado) {
     let iteraciones = 100
     let funcion = math.compile(expr)
-    var a = -50, error, i = 0
-    var b = (a - 0.00001)
+    let a = -50, error, i = 0
+    let b
     var variableA, variableB, funcion1, funcion2
-    var c;
+    let c;
     do{
+        b = (a - 0.00001)
         variableA = {x: a}
         variableB = {x: b}
         funcion1 = funcion.evaluate(variableA)
