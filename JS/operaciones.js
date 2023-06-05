@@ -1,8 +1,9 @@
 function igual(){
     let expr = document.getElementById('texto').value;
     let errorDeseado = 0;
-    limpiar()
-    metodo(expr, errorDeseado)
+    limpiar();
+    let listaRangos = BuscarRangos(expr);
+    metodo(expr, errorDeseado, listaRangos)
 }
 
 function metodo(expr, errorDeseado) {
@@ -51,51 +52,70 @@ function imprimir(raices) {
     }
 }
 
-function biseccion(expr, errorDeseado) {  
-    let funcion = math.compile(expr);
-    var a=-50, b=-47, auxA, auxB;
+function biseccion(expr, errorDeseado, listaRangos) {  
+    let funcion = math.compile(expr), iteraciones = 100;
+    var a, b, j = 0, error, c, i, variableA, variableB, variableC;;
     var raices = [];
     do{
-        var i = 0, error, c = 0;
-        var variableA, variableB, variableC;
-        let iteraciones = 100;
+        i = 0;
+        a = listaRangos[j].inicio;
+        b = listaRangos[j].fin;
         variableA = {x: a};
         variableB = {x: b};
-        auxA = a;
-        auxB = b;
-        if(funcion.evaluate(variableA) * funcion.evaluate(variableB) < 0) {
-            do{                    
-                c = (a+b)/2;                         
-                variableC = {x: c};      
-                if(funcion.evaluate(variableA) * funcion.evaluate(variableC) < 0){
-                    b = c;
+        do{                    
+            c = (a+b)/2;                         
+            variableC = {x: c};      
+            if(funcion.evaluate(variableA) * funcion.evaluate(variableC) < 0){
+                b = c;
+            }
+            else {
+                if(funcion.evaluate(variableA) * funcion.evaluate(variableC) > 0){
+                    a = c;
                 }
                 else {
-                    if(funcion.evaluate(variableA) * funcion.evaluate(variableC) > 0){
-                        a = c;
-                    }
-                    else {
-                        if(funcion.evaluate(variableA) * funcion.evaluate(variableC) == 0){
-                            error = 0;
-                        }
+                    if(funcion.evaluate(variableA) * funcion.evaluate(variableC) == 0){
+                        error = 0;
                     }
                 }
-                error = Math.abs(funcion.evaluate(variableC) - 0);
-                i = i+1;
-            }while(i < iteraciones && error > errorDeseado)
-            a = auxA;
-            b = auxB;
-            var raiz = new Raiz(c, error, i);
-            raices.push(raiz);
-            a = a+3;
-            b = b+3;
-        }
-        else {
-            a = a+3;
-            b = b+3;
-        }
-    }while(b < 60);
+            }
+            error = Math.abs(funcion.evaluate(variableC) - 0);
+            i = i+1;
+        }while(i < iteraciones && error > errorDeseado)
+        var raiz = new Raiz(c, error, i);
+        raices.push(raiz);
+        a = listaRangos[j].a;
+        b = listaRangos[j].b;
+        j++;
+    }while(j < listaRangos.length);
     imprimir(raices);
+}
+
+class Rango {
+    constructor(inicio, fin) {
+        this.inicio = inicio;
+        this.fin = fin;
+    }
+}
+
+function BuscarRangos(expr) {
+    let funcion = math.compile(expr);
+    var a = -100, b = -97, variableA, variableB;
+    var rangos = []
+    do{
+        variableA = {x: a};
+        variableB = {x: b};
+        if(funcion.evaluate(variableA) * funcion.evaluate(variableB) < 0) {
+            var rango = new Rango(a, b);
+            rangos.push(rango);
+            a = a+3;
+            b = b+3;
+        }
+        else{
+            a = a+3;
+            b = b+3;
+        }
+    }while(b <= 100)
+    return rangos;
 }
 
 function newton(expr, errorDeseado){
@@ -214,5 +234,6 @@ function secante(expr, errorDeseado) {
 
 /*Funciones de prueba:
     2x^2-x-5
+    3x^3+2x^2+x-8
     e^-x
 */
