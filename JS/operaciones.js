@@ -179,7 +179,7 @@ function secante(expr, errorDeseado) {
             raices.push(raiz);
         }
         else{
-            if(c != raices[j].raiz) {
+            if(c != raices[j].raiz && isNaN(c) == false) {
                 raices.push(raiz);
                 j++;
             }           
