@@ -28,6 +28,7 @@ function limpiar() {
     r.value = null;
     let r2 = document.getElementById('Nresultados');
     r2.value = null;
+    console.clear();
 }
 
 class Raiz{
@@ -175,7 +176,7 @@ function secante(expr, errorDeseado) {
         }while(i < iteraciones && error > errorDeseado);
         var raiz = new Raiz (c, error, i);
         b = aux + 1
-        if(raices[j] == null){
+        if(raices[j] == null && isNaN(c) == false){
             raices.push(raiz);
         }
         else{
