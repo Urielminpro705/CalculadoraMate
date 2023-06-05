@@ -36,16 +36,16 @@ function biseccion(expr, errorDeseado, rangos) {
     imprimir(raices);
 }
 
-function newton(expr, errorDeseado){
-    let iteraciones = 100, b, error, i;
+function newton(expr, errorDeseado, rangos){
+    let iteraciones = 100;
     let funcion = math.compile(expr);
-    var variableA, derivada, aux, a = -50, j = 0;
+    var variableA, derivada, a, j = 0, b, error, i;
     derivada = math.derivative(expr,'x').toString();
     let derivada1 = math.compile(derivada);
     var raices = [];
     do{
         i = 0
-        aux = a;
+        a = rangos[j].fin;
         do{
             variableA = {x: a};
             b = a - (funcion.evaluate(variableA)/derivada1.evaluate(variableA));
@@ -54,18 +54,9 @@ function newton(expr, errorDeseado){
             i++;
         }while(i < iteraciones && error > errorDeseado);
         var raiz = new Raiz (b, error, i);
-        a = aux;
-        a = a + 3;
-        if(raices[j] == null){
-            raices.push(raiz);
-        }
-        else{
-            if(b != raices[j].raiz) {
-                raices.push(raiz);
-                j++;
-            }           
-        }
-    }while(a < 60);
+        raices.push(raiz);
+        j++;
+    }while(j < rangos.length);
     imprimir(raices)
 }
 

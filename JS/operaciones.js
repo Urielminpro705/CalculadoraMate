@@ -14,10 +14,10 @@ function metodo(expr, errorDeseado, rangos) {
             biseccion(expr, errorDeseado, rangos);
         break;
         case "Punto fijo":
-            puntoFijo(expr, errorDeseado);
+            puntoFijo(expr, errorDeseado, rangos);
         break;
         case "Newton-Raphson":
-            newton(expr, errorDeseado);
+            newton(expr, errorDeseado, rangos);
         break;
         case "Secante":
             secante(expr, errorDeseado);
@@ -47,19 +47,19 @@ function imprimir(raices) {
 
 function BuscarRangos(expr, rangos) {
     let funcion = math.compile(expr);
-    var a = -100, b = -97, variableA, variableB;
+    var a = -100, b = -98, variableA, variableB;
     do{
         variableA = {x: a};
         variableB = {x: b};
         if(funcion.evaluate(variableA) * funcion.evaluate(variableB) < 0) {
             var rango = new Rango(a, b);
             rangos.push(rango);
-            a = a+3;
-            b = b+3;
+            a = a+2;
+            b = b+2;
         }
         else{
-            a = a+3;
-            b = b+3;
+            a = a+2;
+            b = b+2;
         }
     }while(b <= 100)
     return rangos;
