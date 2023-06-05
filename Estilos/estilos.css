@@ -154,12 +154,12 @@ button:active {
 @media screen and (max-width: 882px){
     .contenedor {
         margin-top: 20px;
-        width: 60%;
+        width: 75%;
     }
     .contenedor2 {
         margin-top: 10px;
         margin-left: 0px;
-        width: 60%;
+        width: 75%;
         height: auto;
     }
     #resultado {
