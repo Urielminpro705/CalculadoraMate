@@ -138,7 +138,6 @@ function puntoFijo(expr, errorDeseado) {
     } 
 }
 
-/*
 function secante(expr, errorDeseado) {
     let funcion = math.compile(expr);
     var a = -50, c = 0, b,error, variableA, variableB, aux, j = 0, i;
@@ -151,7 +150,9 @@ function secante(expr, errorDeseado) {
         do{
             variableA = {x: a};
             variableB = {x: b};
-            c = a - (((a - b)*funcion.evaluate(variableA))/(funcion.evaluate(variableA) - funcion.evaluate(variableB)));
+            funcion1 = funcion.evaluate(variableA)
+            funcion2 = funcion.evaluate(variableB)
+            c = a - (((b - a)*funcion2)/(funcion2 - funcion1))
             b = a;
             a = c;
             error = Math.abs(funcion.evaluate(variableA) - 0);
@@ -169,22 +170,23 @@ function secante(expr, errorDeseado) {
                 j++;
             }           
         }
-    }while(a < -50);
+    }while(a < 60);
     imprimir(raices)
-}*/
+}
 
+/*
 function secante(expr, errorDeseado) {
     let iteraciones = 100
     let funcion = math.compile(expr)
-    var a = -50, error, i = 0, b, c
+    var b = -50, error, i = 0, a, c
     var variableA, variableB, funcion1, funcion2
+    a = (b - 0.00001)
     do{
-        b = (a - 0.00001)
         variableA = {x: a}
         variableB = {x: b}
         funcion1 = funcion.evaluate(variableA)
         funcion2 = funcion.evaluate(variableB)
-        c = a - (((a - b)*funcion1)/(funcion1 - funcion2))
+        c = a - (((b - a)*funcion2)/(funcion2 - funcion1))
         b = a
         a = c
         error = Math.abs(funcion1 - 0)
@@ -193,7 +195,7 @@ function secante(expr, errorDeseado) {
     console.log("La raiz es: ", c)
     console.log("El error es: ", error)
     console.log("Numero de iteraciones: ", i)
-}
+}*/
 
 
 /*Funciones de prueba:
