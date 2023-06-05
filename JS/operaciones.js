@@ -176,10 +176,8 @@ function secante(expr, errorDeseado) {
 function secante(expr, errorDeseado) {
     let iteraciones = 100
     let funcion = math.compile(expr)
-    let a = -50, error, i = 0
-    let b
+    var a = -50, error, i = 0, b, c
     var variableA, variableB, funcion1, funcion2
-    let c;
     do{
         b = (a - 0.00001)
         variableA = {x: a}
