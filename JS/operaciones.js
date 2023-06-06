@@ -14,13 +14,13 @@ function metodo(expr, errorDeseado, rangos) {
             biseccion(expr, errorDeseado, rangos);
         break;
         case "Punto fijo":
-            puntoFijo(expr, errorDeseado, rangos);
+            puntoFijo(expr, errorDeseado);
         break;
         case "Newton-Raphson":
             newton(expr, errorDeseado, rangos);
         break;
         case "Secante":
-            secante(expr, errorDeseado);
+            secante(expr, errorDeseado, rangos);
         break;
     }
 }

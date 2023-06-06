@@ -83,15 +83,15 @@ function puntoFijo(expr, errorDeseado) {
     } 
 }
 
-function secante(expr, errorDeseado) {
+function secante(expr, errorDeseado, rangos) {
     let funcion = math.compile(expr);
-    var a, c = 0, b = -50, error, variableA, variableB, aux, j = 0, i;
+    var a, c = 0, b, error, variableA, variableB, j = 0, i;
     let iteraciones = 100;
     var raices = [], funcion1, funcion2;
     do{ 
         i = 0;
-        aux = b
-        a = b - 0.00001
+        b = rangos[j].inicio;
+        a = b - 0.00001;
         do{
             variableA = {x: a};
             variableB = {x: b};
@@ -104,17 +104,9 @@ function secante(expr, errorDeseado) {
             i++;
         }while(i < iteraciones && error > errorDeseado);
         var raiz = new Raiz (c, error, i);
-        b = aux + 1
-        if(raices[j] == null && isNaN(c) == false){
-            raices.push(raiz);
-        }
-        else{
-            if(c != raices[j].raiz && isNaN(c) == false) {
-                raices.push(raiz);
-                j++;
-            }           
-        }
-    }while(a < 60);
+        raices.push(raiz);
+        j++
+    }while(j < rangos.length);
     imprimir(raices)
 }
 
