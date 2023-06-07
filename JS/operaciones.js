@@ -20,6 +20,7 @@ function metodo(expr, errorDeseado, rangos) {
             newton(expr, errorDeseado, rangos);
         break;
         case "Secante":
+            errorDeseado = 0.0001;
             secante(expr, errorDeseado, rangos);
         break;
     }

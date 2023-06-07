@@ -45,7 +45,7 @@ function newton(expr, errorDeseado, rangos){
     var raices = [];
     do{
         i = 0
-        a = rangos[j].fin;
+        a = (rangos[j].inicio + rangos[j].fin) / 2;
         do{
             variableA = {x: a};
             b = a - (funcion.evaluate(variableA)/derivada1.evaluate(variableA));
@@ -90,7 +90,7 @@ function secante(expr, errorDeseado, rangos) {
     var raices = [], funcion1, funcion2;
     do{ 
         i = 0;
-        b = rangos[j].inicio;
+        b = (rangos[j].inicio + rangos[j].fin) / 2;
         a = b - 0.00001;
         do{
             variableA = {x: a};
