@@ -110,30 +110,6 @@ function secante(expr, errorDeseado, rangos) {
     imprimir(raices)
 }
 
-/*
-function secante(expr, errorDeseado) {
-    let funcion = math.compile(expr);
-    let formula = math.compile("x - (((x - y)*g)/(g - k))");
-    var b = -50, a, variableA, variableB, i = 0, c, funcion1, funcion2, variableX;
-    let iteraciones = 100, error;
-    a = b - 0.00001;
-    do{
-        variableA = {x:a};
-        variableB = {x:b};
-        funcion1 = funcion.evaluate(variableA);
-        funcion2 = funcion.evaluate(variableB);
-        variableX = {x:b, y:a, g:funcion2, k:funcion1};
-        c = formula.evaluate(variableX);
-        a = b;
-        b = c;
-        error = Math.abs(funcion.evaluate(variableB) - 0);
-        i++;
-    }while(i < iteraciones && error > errorDeseado);
-    console.log("La raiz es: ", c);
-    console.log("El error es: ",error);
-    console.log("Numero de iteraciones: ",i);
-}*/
-
 /*Funciones de prueba:
     2x^2-x-5
     3x^3+2x^2+x-8
