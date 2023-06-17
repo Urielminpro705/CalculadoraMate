@@ -7,36 +7,3 @@
 body {
     background-color: #222831;
 }
-
-.contenedor2 {
-    height: 510px;
-    margin-top: 70px;
-    margin-left: 5%;
-    width: 20%;
-}
-
-@media screen and (max-width: 882px){
-    .contenedor {
-        margin-top: 20px;
-        width: 75%;
-    }
-    .contenedor2 {
-        margin-top: 10px;
-        margin-left: 0px;
-        width: 75%;
-        height: auto;
-    }
-    #resultado {
-        height: 200px;
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 384px){
-    .contenedor {
-        width: 85%;
-    }
-    .contenedor2 {
-        width: 85%;
-    }
-}

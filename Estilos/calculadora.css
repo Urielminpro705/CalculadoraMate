@@ -28,27 +28,41 @@ button:hover {
     background-color: #03ccd6;
 }
 
-#texto {   
-    height: 100%;
-    width: 100%;
-    padding: 0px;
+#textoC {
+    grid-row: 2;
+    background-color: #8fcbce;
+}
+
+#texto {
     border: none;
     text-align: right;
     font-size: larger;
-    background-color: #8fcbce;
+    padding: 0;
     color: white;
+    width: 98%;
+    height: 100%;
+    background-color: transparent;
     font-weight: bold;
+}
+
+#texto:focus {
+    outline: none;
 }
 
 #Nresultados {
     height: 100%;
-    width: 99%;
+    width: 98%;
     padding: 0px;
     margin: auto;
     border: none;
     text-align: right;
     font-size: larger;
     font-weight: bold;
+}
+
+#NresultadosC {
+    grid-row: 1;
+    background-color: white;
 }
 
 #pantalla {
@@ -109,4 +123,17 @@ option {
 
 button:active {
     background-color: #047075;
+}
+
+@media screen and (max-width: 882px){
+    .contenedor {
+        margin-top: 20px;
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 384px){
+    .contenedor {
+        width: 85%;
+    }
 }
