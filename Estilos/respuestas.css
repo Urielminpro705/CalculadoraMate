@@ -14,6 +14,7 @@
     height: 100%;
     background-color: transparent;
     border-bottom: 2px solid gray;
+    overflow: hidden;
 }
 
 #tituloR p {
@@ -32,11 +33,12 @@
 }
 
 #resultado {
+    padding-top: 10px;
+    padding-left: 5px;
     background-color: transparent;
     visibility: visible;
     height: 100%;
     width: 100%;
-    padding: 0px;
     border: none;
     font-size: larger;
     font-weight: bold;
@@ -46,16 +48,23 @@
     color: #222831;
 }
 
+
+
 @media screen and (max-width: 882px){
     .contenedor2 {
         margin-top: 10px;
         margin-left: 0px;
         width: 75%;
-        height: auto;
+        height: 200px;
+        grid-template-rows: 20% 80%;
     }
     #resultado {
-        height: 200px;
+        height: 100%;
         width: 100%;
+    }
+
+    #tituloR p {
+        padding-top: 10px;
     }
 }
 
