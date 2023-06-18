@@ -71,8 +71,11 @@ function cambioSeleccion(){
     var modoPro = document.getElementById("modopro")
     let actual = selectElement.value;
     if(actual == "Personalizar"){
-        
-    }   
+        modoPro.style.display = "grid"
+    }
+    else{
+        modoPro.style.display = "none"
+    }
 }
 
 class Raiz{
