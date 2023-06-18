@@ -48,7 +48,7 @@ function imprimir(raices) {
 
 function BuscarRangos(expr, rangos) {
     let funcion = math.compile(expr);
-    var a = -100, b = -98, variableA, variableB;
+    var a = -500, b = -498, variableA, variableB;
     do{
         variableA = {x: a};
         variableB = {x: b};
@@ -62,7 +62,7 @@ function BuscarRangos(expr, rangos) {
             a = a+2;
             b = b+2;
         }
-    }while(b <= 100)
+    }while(b <= 500)
     return rangos;
 }
 
