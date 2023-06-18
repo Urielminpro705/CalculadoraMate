@@ -8,6 +8,7 @@
     <link href="Estilos/estilos.css" rel="stylesheet">
     <link href="Estilos/calculadora.css" rel="stylesheet">
     <link href="Estilos/respuestas.css" rel="stylesheet">
+    <link href="Estilos/pro.css" rel="stylesheet">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>    
 </head>
@@ -27,11 +28,12 @@
                 </div>               
             </div>
             <div class="item" id="selector">
-                <select id="seleccion">
+                <select id="seleccion" onchange="cambioSeleccion()">
                     <option>Biseccion</option>
                     <option>Punto fijo</option>
                     <option>Newton-Raphson</option>
                     <option>Secante</option>
+                    <option>Personalizar</option>
                 </select>
             </div>
             <div class="item">
@@ -112,6 +114,9 @@
             <div class="item">
                 <button id="igual" onclick="igual()">=</button>
             </div>
+        </div>
+        <div id="modopro">
+            <input>
         </div>
         <div class="contenedor2">
             <div id="tituloR">

@@ -66,6 +66,15 @@ function BuscarRangos(expr, rangos) {
     return rangos;
 }
 
+function cambioSeleccion(){
+    let selectElement = document.getElementById("seleccion");
+    var modoPro = document.getElementById("modopro")
+    let actual = selectElement.value;
+    if(actual == "Personalizar"){
+        
+    }   
+}
+
 class Raiz{
     constructor (raiz, error, iteraciones){
         this.raiz = raiz;

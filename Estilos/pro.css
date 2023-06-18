@@ -1,0 +1,11 @@
+#modopro {
+    display: grid;
+    grid-template-rows: 20% 20%;
+    grid-template-columns: 50% 50%;
+    margin-top: 70px;
+    height: 510px;
+    background-color: #EEEEEE;
+    margin-left: 20px;
+    width: 200px;
+    border-radius: 5px;
+}
