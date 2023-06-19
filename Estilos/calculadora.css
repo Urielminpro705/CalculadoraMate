@@ -15,8 +15,7 @@ button {
     height: 100%;
     width: 100%;
     margin: 0px;
-    padding: 0px;
-    background-color: #00ADB5;
+    padding: 0px;   
     border: none;
     border-radius: 5px;
     color: white;
@@ -24,7 +23,11 @@ button {
     font-size:large;
 }
 
-button:hover {
+.boton2 {
+    background-color: #00ADB5;
+}
+
+.boton2:hover {
     background-color: #03ccd6;
 }
 
@@ -129,6 +132,26 @@ button:active {
     .contenedor {
         margin-top: 20px;
         width: 75%;
+    }
+
+    #igual:hover {
+        background-color: #B73E3E;
+    }
+
+    .boton2:hover {
+        background-color: #00ADB5;
+    }
+
+    .boton2:active {
+        background-color: #047075;
+    }
+
+    #igual:active {
+        background-color: #943030;
+    }
+
+    .numeros:active {
+        background-color: #047075;
     }
 }
 
