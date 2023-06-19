@@ -59,7 +59,7 @@ function limpiar() {
 
 function imprimir(raices) {
     var r = document.getElementById('resultado');
-    var r2 = document.getElementById('Nresultados');
+    var r2 = document.getElementById('Nresultados'); 
     r2.value = "Se econtraron " + raices.length + " raices";
     for(var i = 0; i < raices.length; i++){
         r.value = r.value + "La raíz es: " + raices[i].raiz + "\n";
@@ -89,7 +89,7 @@ function BuscarRangos(expr, rangos) {
         }while(b <= 500)
     } else {
         let aS = document.getElementById('rangoA').value, bS = document.getElementById('rangoB').value
-        var a = parseInt(aS), b = parseInt(bS), variableA, variableB;
+        var a = parseFloat(aS), b = parseFloat(bS), variableA, variableB;
             
             variableA = {x: a};
             variableB = {x: b};
@@ -100,6 +100,7 @@ function BuscarRangos(expr, rangos) {
             }
             else{
                 var r2 = document.getElementById('Nresultados');
+                console.log(rangos[0])
                 r2.value = "No se encontraron raices"
             }
     }  

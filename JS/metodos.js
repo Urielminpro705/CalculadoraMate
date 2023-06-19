@@ -66,6 +66,7 @@ function puntoFijo(expr, errorDeseado, a) {
     let iteraciones = 100;
     let funcion = math.compile(expr);
     let variableA;
+    var raices = [];
     do {
         variableA = {x: a};
         b = funcion.evaluate(variableA);
@@ -74,9 +75,9 @@ function puntoFijo(expr, errorDeseado, a) {
         i++;
     }while(i < iteraciones && error > errorDeseado);
     if(i <= iteraciones) {
-        console.log("La raiz es: ", a);
-        console.log("El error es: ", error);
-        console.log("Numero de iteraciones: ", i);
+        var raiz = new Raiz (a, error, i);
+        raices.push(raiz);
+        imprimir(raices);
     }
     else{
         console.log("El metodo no converge en ",i," iteraciones");
