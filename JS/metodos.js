@@ -60,9 +60,9 @@ function newton(expr, errorDeseado, rangos){
     imprimir(raices)
 }
 
-function puntoFijo(expr, errorDeseado) {
+function puntoFijo(expr, errorDeseado, a) {
     let b, error;
-    var i = 0, a = 0;
+    var i = 0;
     let iteraciones = 100;
     let funcion = math.compile(expr);
     let variableA;
