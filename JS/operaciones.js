@@ -3,9 +3,22 @@ function igual(){
     let errorDeseado = 0;
     limpiar();
     var rangos = []
-    BuscarRangos(expr, rangos);
-    metodo(expr, errorDeseado, rangos)
+    if(tuneado == false){
+        BuscarRangos(expr, rangos);
+        metodo(expr, errorDeseado, rangos)
+    } else {
+        if(tuneado == true){
+            console.log(tuneado)
+            let a = document.getElementById('rangoA').value;
+            let b = document.getElementById('rangoB').value;
+            let rango = new Rango(a,b)
+            rangos.push(rango);
+            metodo(expr, errorDeseado, rangos)
+        }
+    }  
 }
+
+var tuneado = false;
 
 function metodo(expr, errorDeseado, rangos) {
     let m = document.getElementById('seleccion').value;
@@ -72,9 +85,11 @@ function cambioSeleccion(){
     let actual = selectElement.value;
     if(actual == "Personalizar"){
         modoPro.style.display = "grid"
+        tuneado = true;
     }
     else{
         modoPro.style.display = "none"
+        tuneado = false;
     }
 }
 
@@ -90,5 +105,20 @@ class Rango {
     constructor(inicio, fin) {
         this.inicio = inicio;
         this.fin = fin;
+    }
+}
+
+function cambioSeleccion2(){
+    let selectElement = document.getElementById("seleccion2");
+    var inicial = document.getElementById("nInicial")
+    var rangoText = document.getElementById("rangoText")
+    let actual = selectElement.value;
+    if(actual == "Biseccion"){
+        inicial.style.display = "none";
+        rangoText.style.display = "block"
+    }
+    if(actual == "Punto fijo"){
+        rangoText.style.display = "none";
+        inicial.style.display = "block";
     }
 }

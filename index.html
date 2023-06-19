@@ -116,7 +116,20 @@
             </div>
         </div>
         <div id="modopro" style="display: none;">
-            <input>
+            <div id="selector2">
+                <select id="seleccion2" onchange="cambioSeleccion2()">
+                    <option>Biseccion</option>
+                    <option>Punto fijo</option>
+                    <option>Newton-Raphson</option>
+                    <option>Secante</option>
+                </select>
+            </div>
+            <div class="textP">
+                <label id="nInicial" class="textosA" style="display: none;">Numero inicial</label>
+                <label id="rangoText" class="textosA">Rango</label>
+            </div>            
+            <input id="rangoA" placeholder="a">
+            <input id="rangoB" placeholder="b">
         </div>
         <div class="contenedor2">
             <div id="tituloR">
